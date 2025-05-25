@@ -15,4 +15,4 @@ datasets:
 
 Code:
   1. Weather data API query.ipynb
-     - program that queries historical weather data from the Visual Crossing weather API based on location, date, and time.
+     - Program that queries historical weather data from the Visual Crossing weather API based on location, date, and time.

@@ -24,3 +24,5 @@ Code:
      - Program that queries historical weather data from the Visual Crossing weather API based on location, date, and time.
   2. Road Wetness API query.ipynb
      - Program that queries cumulative precipitation amount from the Visual Crossing weather API based on the 6 hours before the crash. 
+  3. Geospatial Automated Tagger.ipynb
+     - Program which takes our excel sheet of manually tagged geospatial features from Google Maps and, for each feature and datapoint in our dataset, tags the category of that feature which corresponds to the longitude of the crash location of the datapoint.

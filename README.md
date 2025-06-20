@@ -47,7 +47,7 @@ The results of our geospatial feature recording can be found in [this google she
 
 ## <p align="center"> Exploratory Data Analysis</p>
 
-## <p align="center"> Hypothesis Testing</p>
+## <p align="center"> Modeling & Hypothesis Testing</p>
 
 ## <p align="center"> Results</p>
 

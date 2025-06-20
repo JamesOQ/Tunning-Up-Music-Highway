@@ -1,5 +1,5 @@
 #                                                                             <p align="center"> Tuning Up Music Highway</p>
-&nbsp;&nbsp;&nbsp;&nbsp; This is a repository for the Tuning Up Music Highway project for The Erdős Institute Summer 2025 Data Science Bootcamp.
+This is a repository for the Tuning Up Music Highway project for The Erdős Institute Summer 2025 Data Science Bootcamp.
 
 Team members: Ruixuan Ding, [John Hurtado](https://github.com/hurtadocadavid21), Yang Mo, [James O'Quinn](https://github.com/JamesOQ), [Chilambwe Wapamenshi](https://github.com/ChilambweWapamenshi)
 

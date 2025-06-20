@@ -22,6 +22,7 @@ Note that the first dataset only includes three features: latitutde, longitude, 
 - more than 1 inch of cumulative rainfall is labeled as 'very wet'
 - between 0 and 1 inches of cumulative rainfall is 'damp'
 - otherwise 'dry'.
+
 The notebook for that can be found [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Road%20Wetness%20API%20query.ipynb). While the weather and road wetness features were helpful during exploratory data analysis, we did not use these features in our final analysis.
 
 &nbsp;&nbsp;&nbsp;&nbsp; The most important aspect of our feature engineering was the tagging of geospatial features manually recorded from Google Maps. Since all images on Google Maps of our segment on I-40 are consistent with the timeframe of crashes in our datasets (2023-2025) and no major construction projects occurred on this segment during that timeframe, we expect the geospatial features on Google Maps to be mostly consistent with the geospatial features at the time of each crash. We determined it would be best to manually record features through Google Streetview to maintain accuracy. The following table shows the features and categories that we recorded:

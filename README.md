@@ -1,7 +1,7 @@
 #                                                                             <p align="center"> Tuning Up Music Highway</p>
 This is a repository for the Tuning Up Music Highway project for The Erdős Institute Summer 2025 Data Science Bootcamp.
 
-Team members: Ruixuan Ding, [John Hurtado](https://github.com/hurtadocadavid21), Yang Mo, [James O'Quinn](https://github.com/JamesOQ), [Chilambwe Wapamenshi](https://github.com/ChilambweWapamenshi)
+Team members: Ruixuan Ding, [John Hurtado](https://github.com/hurtadocadavid21), [Yang Mo](https://github.com/zetacaveman), [James O'Quinn](https://github.com/JamesOQ), [Chilambwe Wapamenshi](https://github.com/ChilambweWapamenshi)
 
 Acknowledgements: First, we would like to thank everyone at The Erdős Institute for making this project possible and giving us the means, structure, and education to complete this project. Additionally, we would like to thank the Tennessee Department of Safety and Homeland Security for providing their detailed data and well-made dashboards to the public. Also, we would like to thank Steven Gubkin for the helpful comments and feedback. Finally, we are incredibly grateful for all the advice, encouragement, and guidance from our group mentor Greg Taylor.
 

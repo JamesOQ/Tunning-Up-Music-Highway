@@ -93,9 +93,9 @@ Since it appears that there is a stark contrast between urban and rural crashes 
 - sufficient number of crashes in that segment for meaningful analysis.
 
 After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
-1. Intepretable logistic regression model using only the features which correspond to our safety intervention
-2. Full predictive logistic regression model
-3. CatBoost model
+1. an intepretable logistic regression model using only the features which correspond to our safety intervention,
+2. a full predictive logistic regression model, and
+3. a CatBoost model.
 
 &nbsp;&nbsp;&nbsp;&nbsp; We chose these models since our focus is on prediction and our data is purely categorical. Note that we added a Bayesian logistic regression model to the adding guardrails and redoing lane markings and signage hypothesis test but did not include it in the final analysis or any other hypothesis tests due to the following reasons:
 1. The model took over 10 hours to train on our data due to running many Markov Chain Monte Carlo simulations to simulate several unknown priors.

@@ -126,7 +126,17 @@ After, our segment was chosen, we held out all of the crashes that happened on t
 ## <p align="center"> Results</p>
 &nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypotehsis test was the first one performed, the correction was unnecessary. 
 
-&nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. In fact, the high effectiveness of adding guardrails in reducing injurious crashes is well documented in the roadway safety literature, so this result is not too surprising. Moreover, this implementation turned out to be cost effect. Indeed, if each injurious crash our madel would have predicted to have happened the previous 3 years had a 50% cahnce of happening, we get the following cost-benefit analysis:
+&nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. The following are the graphs of the bootstrapped sample means, the p-values, and the confidence intervals for both models for this safety intervention.
+
+<p align="center">
+  <img src="Results/bootstrapLR.png" width="1000" alt="Logo" />
+</p>
+
+<p align="center">
+  <img src="Results/bootstrapCB.png" width="1000" alt="Logo" />
+</p>
+
+In fact, the high effectiveness of adding guardrails in reducing injurious crashes is well documented in the roadway safety literature, so this result is not too surprising. Moreover, this implementation turned out to be cost effect. Indeed, if each injurious crash our madel would have predicted to have happened the previous 3 years had a 50% cahnce of happening, we get the following cost-benefit analysis:
 
 Do note that the actual number of crashes that happened on that highway segment is actually 25. 
 

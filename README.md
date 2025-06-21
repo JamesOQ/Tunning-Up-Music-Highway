@@ -73,8 +73,17 @@ Since we determined that we would like to use a crash being injurious or not as 
 
 Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
 
-## <p align="center"> Modeling & Hypothesis Testing</p>
+Finally, we came up with a list of hypotheses to test.
 
+- Adding guardrails and redoing lane markings and signage to a segment
+- Only redoing lane markings and signage to a segment
+- Repaving a segment
+- Reducing the speed limit on a segment near a highway entrance/exit
+- Adding dividers to the median of a segment
+- Adding lampposts to a small segment
+
+## <p align="center"> Modeling & Hypothesis Testing</p>
+We will now outline our general approch to modeling and hypothesis testing
 ## <p align="center"> Results</p>
 
 

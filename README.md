@@ -3,7 +3,7 @@ This is a repository for the Tuning Up Music Highway project for The Erdős Inst
 
 Team members: Ruixuan Ding, [John Hurtado](https://github.com/hurtadocadavid21), [Yang Mo](https://github.com/zetacaveman), [James O'Quinn](https://github.com/JamesOQ), [Chilambwe Wapamenshi](https://github.com/ChilambweWapamenshi)
 
-Acknowledgements: We would first like to thank everyone at the Erdős Institute for providing the structure, resources, and education that made this project possible. Additionally, we are thankful for the detailed data and dashboards made publicly available by the Tennessee Department of Safety and Homeland Security. Also, special thanks to Steven Gubkin for his helpful comments and feedback. Finally, we are especially grateful to have had Greg Taylor as our group mentor, and for his generous guidance, encouragement, and advice throughout the project.
+Acknowledgements: We would first like to thank everyone at the Erdős Institute for providing the structure, resources, and education that made this project possible. Additionally, we are thankful for the detailed data and dashboards made publicly available by the Tennessee Department of Safety and Homeland Security. Also, special thanks to Steven Gubkin for his helpful comments and feedback. Finally, we are especially grateful to have had Greg Taylor as our project mentor, and for his generous guidance, encouragement, and advice throughout the project.
 
 
 #  Table of Contents</p>

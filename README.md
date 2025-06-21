@@ -47,7 +47,10 @@ The results of our geospatial feature recording can be found in [this google she
 
 ## <p align="center"> Exploratory Data Analysis</p>
 For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling.
-![Heatmap visualization](EDA/Crash Heatmap.png)
+
+<p align="center">
+  <img src="EDA/Crash Heatmap.png" width="200" alt="Logo" />
+</p>
 ## <p align="center"> Modeling & Hypothesis Testing</p>
 
 ## <p align="center"> Results</p>

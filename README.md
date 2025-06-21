@@ -119,6 +119,8 @@ After, our segment was chosen, we held out all of the crashes that happened on t
 2. The model lacked predictive power even with some good empirical priors, and
 3. The model was difficult to tune and didn't provide the uncertainty quantification we had hoped for.
 
+Note that the Bayesian logistic regression did predict an increase in injurious crashes after implementing that safety strategy.
+
 &nbsp;&nbsp;&nbsp;&nbsp; We also applied automatic hyperparameter tuning using grid search for our CatBoost model and selected optimal decision thresholds for both models based on the F1 score. Despite these efforts, the models continued to produce a high number of false positives for injurious crashes, with average F1 scores around 0.5. However, we prioritized achieving high recall for injurious crash prediction, as it is more important from a safety perspective to overpredict injuries than to risk underpredicting them.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. The null hypothesis for each safety strategy is that it does not lead to a reduction in the number of injurious crashes on the chosen segment. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. We then evaluated the effectiveness of the intervention by comparing each model’s predicted outcomes before and after applying the intervention. To test the significance of these changes, we used bootstrap resampling. Specifically, we generated 10,000 bootstrap samples of the before-and-after datasets and computed the difference in their mean predicted outcomes for each sample. For each model, we calculated a p-value as the proportion of bootstrap sample differences that were less than or equal to zero. If zero fell outside the resulting confidence interval for both models, we rejected the null hypothesis that the intervention had no effect.
@@ -150,13 +152,13 @@ In fact, the effectiveness of adding guardrails in reducing injurious crashes is
 
 | **Component**                  | **Cost per Mile** | **Segment Length** | **Total**        |
 |-------------------------------|-------------------|---------------------|------------------|
-| Guardrails                    | \$300,877         | 3.26 miles          | \$980,859        |
+| Guardrails                    | \$626,600         | 3.26 miles          | \$2,042,716      |
 | Lane Markings & Signage       | \$60,000          | 3.26 miles          | \$195,600        |
-| **Total Estimated Cost**      |                   |                     | **\1,176,459**    |
+| **Total Estimated Cost**      |                   |                     | **$2,238,316**   |
 
 *Source: [FHWA Roadway Design](https://www.fhwa.dot.gov/publications/research/safety/21075/21075.pdf)
 
-Note that we are estimating the basic w-beam installed cost to be $30 per foot and dobule that cost to represent installed cost for both sides of the highway.
+Note that we are estimating the basic w-beam installed cost to be $30 per foot and double that cost to represent installed cost for both sides of the highway. This number includes materials and labor. We also estimate a $300,000 per mile economic cost due to 1 month of public delays due to construction.
 
 ---
 
@@ -167,7 +169,6 @@ Note that we are estimating the basic w-beam installed cost to be $30 per foot a
 |------------------------|----------------------|---------------------|---------------|
 | Logistic Regression    | 61                   | 2                   | 59            |
 | CatBoost               | 61                   | 0                   | 61            |
-| Bayesian Logistic Reg. | 31                   | 43                  | -12 (increase) |
 
  We use the **Logistic Regression** and **CatBoost** models as they show strong agreement and outperform the Bayesian model on validation.
 
@@ -189,7 +190,7 @@ $\text{Estimated Societal Benefit} = 0.5 x 59 x \$302,600  = **$8,926,700**
 ##### 4. Net Benefit Calculation
 
 
-**Net Benefit** = $8,926,700 - $1,176,459 = **$7,750,241**
+**Net Benefit** = $8,926,700 - $2,238,316 = **$6,688,384**
 
 
 ---
@@ -205,7 +206,7 @@ $\text{Estimated Societal Benefit} = 0.5 x 59 x \$302,600  = **$8,926,700**
 ---
 
 ##### Conclusion
-Even under **highly conservative assumptions**, the intervention is cost-effective, yielding a net benefit of **\$3,541** for this 3.26-mile segment had this strategy been implemented in 2023.
+Even under **fairly conservative assumptions**, the intervention is cost-effective, yielding a net benefit of **6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023.
 
 
 Do note that the actual number of crashes that happened on that highway segment is actually 25. 

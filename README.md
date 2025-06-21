@@ -58,7 +58,7 @@ For our exploratory data analysis, our goal was to find evidence for effective s
 
 We also did some preliminary modeling to get an idea of feature importance. These images were generated here and here.
 <p align="center">
-  <img src="EDA/fatality feature importance.png" width="700" alt="Logo" />
+  <img src="EDA/fatality feature importance.png" width="1000" alt="Logo" />
 </p>
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>

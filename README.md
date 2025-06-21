@@ -111,11 +111,14 @@ We also performed automatic tuning through a grid search for our CatBoost model 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. In fact, the high effectiveness of adding guardrails in reducing injurious crashes is well documented in the roadway safety literature, so this result is not too surprising. Moreover, this implementation turned out to be cost effect. Indeed, if each injurious crash our madel would have predicted to have happened the previous 3 years had a 50% cahnce of happening, we get the following cost-benefit analysis:
 
-
-
 Do note that the actual number of crashes that happened on that highway segment is actually 25. 
 
+&nbsp;&nbsp;&nbsp;&nbsp; Overall, our conclusion is that adding guardrails and redoing the lane markings and signage on the section of Interstate 40 from -88.663 to -88.605 longitudinally is worth further consideration and testing. Note that we would not recommend actual safety implementations based on our findings due to the exploratory nature of our analysis. Specifically, the same dataset was used for both hypothesis generation and testing, which can inflate the risk of false positives. While our modeling identified promising patterns, these results should be interpreted as hypothesis-generating rather than confirmatory. Further data collection and independent validation are necessary before drawing actionable conclusions.
+
+
+
 ## <p align="center"> Future Work </p>
+- Methodologically, if one were to repeat this analysis, one way to increase the power of this study is by first coming up with a list of hypotheses to test first, then collect enough data to support a hypothesis test on each one. 
 - Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Streetview. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy.
 - While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.
 ## <p align="center"> Description of Repository</p>

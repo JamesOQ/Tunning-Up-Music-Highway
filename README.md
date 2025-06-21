@@ -104,7 +104,7 @@ The following map only includes injurious crashes.
 - Adding lampposts to a small segment
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>
-&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divded our overall highway into several segments of equal length and chose the segment with the best combination of:
+&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divided our overall highway into several segments of equal length and chose the segment with the best combination of:
 - high injury rate,
 - high proportion of targetable crashes by our safety intervention, and
 - sufficient number of crashes in that segment for meaningful analysis.

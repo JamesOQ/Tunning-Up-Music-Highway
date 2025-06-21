@@ -8,6 +8,16 @@ Acknowledgements: We would first like to thank everyone at the Erdős Institute 
 
 #  Table of Contents</p>
 
+- [Introduction](#introduction)
+- [Dataset Generation](#dataset-generation)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Modeling & Hypothesis Testing](#modeling--hypothesis-testing)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
+- [Description of Repository](#description-of-repository)
+
+
 ##  <p align="center"> Introduction</p>
 &nbsp;&nbsp;&nbsp;&nbsp; Often regarded by residents, and even [some](https://www.dangerousroads.org/north-america/usa/10683-i-40-the-most-dangerous-road-in-nashville-for-auto-accidents.html) [observers](https://www.gkbm.com/blog/interstate-40-car-accidents-tennessee/), as the most dangerous highway in Tennessee, the stretch of Interstate 40 between Memphis and Nashville, known as Music Highway, could use a serious tuning up. This project aims to evaluate the efficacy and cost-effectiveness of various safety interventions on selected segments of Music Highway in Madison and Henderson counties using data modeling and hypothesis testing. To this end, we first obtained a recent crash dataset from the Tennessee Department of Safety and Homeland Security, which includes crash severity and GPS location. After filtering the dataset to include only crashes occurring on the relevant section of I-40, we manually annotated each crash with geospatial features (e.g., presence of guardrails, type of median, pavement condition) using Google Maps. We then conducted exploratory data analysis to identify promising strategies and target segments, performed model-based hypothesis testing to assess the impact of safety features on crash severity, and developed a cost-benefit analysis for the most effective interventions.
 

@@ -136,7 +136,76 @@ After, our segment was chosen, we held out all of the crashes that happened on t
   <img src="Results/bootstrapCB.png" width="700" alt="Logo" />
 </p>
 
-In fact, the high effectiveness of adding guardrails in reducing injurious crashes is well documented in the roadway safety literature, so this result is not too surprising. Moreover, this implementation turned out to be cost effect. Indeed, if each injurious crash our madel would have predicted to have happened the previous 3 years had a 50% cahnce of happening, we get the following cost-benefit analysis:
+In fact, the effectiveness of adding guardrails in reducing injurious crashes is well established in the roadway safety literature, so this result is not particularly surprising. Moreover, this intervention proved to be cost-effective in our analysis. Assuming that each injurious crash our model predicted over the past three years had a 50% chance of actually occurring, we arrive at the following cost-benefit estimate:
+
+##### Segment Details
+- **Segment Length:** 3.26 miles  
+- **Longitude range:** (-88.663, -88.605]
+- **Time Period of Observation:** 2023–2025  
+- **Observed Injurious Crashes (Actual):** 25
+
+---
+
+##### 1. Intervention Cost Estimation
+
+| **Component**                  | **Cost per Mile** | **Segment Length** | **Total**        |
+|-------------------------------|-------------------|---------------------|------------------|
+| Guardrails                    | \$300,877         | 3.26 miles          | \$980,859        |
+| Lane Markings & Signage       | \$60,000          | 3.26 miles          | \$195,600        |
+| **Total Estimated Cost**      |                   |                     | **\1,176,459**    |
+
+*Source: FHWA Roadway Design: https://www.fhwa.dot.gov/publications/research/safety/21075/21075.pdf
+
+---
+
+##### 2. Injury Reduction Predictions
+
+| **Model**              | **Predicted Before** | **Predicted After** | **Reduction** |
+|------------------------|----------------------|---------------------|---------------|
+| Logistic Regression    | 61                   | 2                   | 59            |
+| CatBoost               | 61                   | 0                   | 61            |
+| Bayesian Logistic Reg. | 31                   | 43                  | -12 (increase) |
+
+ We use the **Logistic Regression** and **CatBoost** models as they show strong agreement and outperform the Bayesian model on validation.
+
+---
+
+##### 3. Societal Cost of Injury (Conservative Assumption)
+
+- **Cost per Injurious Crash (Blended Conservative):** \$40,000  
+  *(reflecting possible-to-moderate injuries, per NSC/FHWA guidance)*
+  
+https://www.transportation.gov/sites/dot.gov/files/2022-03/Benefit%20Cost%20Analysis%20Guidance%202022%20Update.pdf
+
+Using the **Logistic Regression estimate** of 59 crashes prevented with prediction threshold of 50%:
+
+\[
+$\text{Estimated Societal Benefit} = .5 \times 59 \times \$40,000 = \$1,180,000$
+\]
+
+---
+
+##### 4. Net Benefit Calculation
+
+\[
+$\text{Net Benefit} = \$1,180,000 - \$1,176,459 = \boxed{\$3,541}$
+\]
+
+---
+
+#####  Notes
+- While only **25 injurious crashes** were actually recorded in 2023–2025, models use features to predict **latent injury risk**, which may exceed reported counts due to:
+  - Underreporting
+  - Rare event uncertainty
+  - Simulated interventions
+
+- A **bootstrap hypothesis test** confirms that the reduction is statistically significant (p < 0.001).
+
+---
+
+##### Conclusion
+Even under **highly conservative assumptions**, the intervention is cost-effective, yielding a net benefit of **\$3,541** for this 3.26-mile segment had this strategy been implemented in 2023.
+
 
 Do note that the actual number of crashes that happened on that highway segment is actually 25. 
 

@@ -214,6 +214,9 @@ Even under **fairly conservative assumptions**, the intervention is cost-effecti
 
 
 ## <p align="center"> Future Work </p>
+The following is a list of suggestions of important future work that came up over the duration of this project's creation.
+
+
 - Methodologically, if one were to repeat this analysis, one way to increase the power of this study is by first coming up with a list of hypotheses to test first, then collect enough data to support a hypothesis test on each one. 
 - Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Streetview. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy.
 - While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.

@@ -154,9 +154,12 @@ In fact, the effectiveness of adding guardrails in reducing injurious crashes is
 | Lane Markings & Signage       | \$60,000          | 3.26 miles          | \$195,600        |
 | **Total Estimated Cost**      |                   |                     | **\1,176,459**    |
 
-*Source: FHWA Roadway Design: https://www.fhwa.dot.gov/publications/research/safety/21075/21075.pdf
+*Source: [FHWA Roadway Design](https://www.fhwa.dot.gov/publications/research/safety/21075/21075.pdf)
+
+Note that we are estimating the basic w-beam installed cost to be $30 per foot and dobule that cost to represent installed cost for both sides of the highway.
 
 ---
+
 
 ##### 2. Injury Reduction Predictions
 

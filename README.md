@@ -140,6 +140,9 @@ Note that the Bayesian logistic regression did predict an increase in injurious 
 
 In fact, the effectiveness of adding guardrails in reducing injurious crashes is well established in the roadway safety literature, so this result is not particularly surprising. Moreover, this intervention proved to be cost-effective in our analysis. Assuming that each injurious crash our model predicted over the past three years had a 50% chance of actually occurring, we arrive at the following cost-benefit estimate:
 
+---
+
+
 ##### Segment Details
 - **Segment Length:** 3.26 miles  
 - **Longitude range:** (-88.663, -88.605]

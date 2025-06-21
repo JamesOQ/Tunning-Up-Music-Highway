@@ -46,7 +46,7 @@ The notebook for that can be found [here](https://github.com/JamesOQ/Tuning-Up-M
 The results of our geospatial feature recording can be found in [this google sheet](https://docs.google.com/spreadsheets/d/1zOUgfIgm1ztMX9Kwp7bK6PvghsTIMg_krHt-7JgNFRs/edit?gid=553882531#gid=553882531). Before tagging our datasets, we filtered our Recent Crashes dataset to only include the crashes which happened on I-40 using GeoPandas and the Tennessee roadways shapefile in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb). Finally, we automatically tagged our datasets with the geospatial features we recorded with [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Geospatial%20Automated%20Tagger.ipynb).
 
 ## <p align="center"> Exploratory Data Analysis</p>
-For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling.
+For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling. The following charts, as well as others, were created in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Crash%20dataset%20visualizations.ipynb).
 
 <p align="center">
   <img src="EDA/Crash Heatmap.png" width="700" alt="Logo" />
@@ -55,7 +55,7 @@ For our exploratory data analysis, our goal was to find evidence for effective s
 <p align="center">
   <img src="EDA/Crash Severity map.png" width="700" alt="Logo" />
 </p>
-## <p align="center"> Modeling & Hypothesis Testing</p>
+
 
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>

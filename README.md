@@ -63,7 +63,7 @@ We recorded the feature categories by following our highway section and jotting 
   <img src="EDA/Crash Severity map.png" width="700" alt="Logo" />
 </p>
 
-We also did some preliminary modeling to get an idea of feature importance. These images, the first predicting fatalities and the second predicting injuries and fatalities, were generated from the notebooks [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Features_Fatal.ipynb) and here.
+We also did some preliminary modeling to get an idea of feature importance. These images, the first predicting fatalities and the second predicting injuries and fatalities, were generated from the notebooks [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Features_Fatal.ipynb) and [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/CatBoost%20I-40.ipynb).
 <p align="center">
   <img src="EDA/fatality feature importance.png" width="1000" alt="Logo" />
 </p>

@@ -116,7 +116,8 @@ We also performed automatic tuning through a grid search for our CatBoost model 
 Do note that the actual number of crashes that happened on that highway segment is actually 25. 
 
 ## <p align="center"> Future Work </p>
-
+- Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Streetview. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy.
+- While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.
 ## <p align="center"> Description of Repository</p>
 
 

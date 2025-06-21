@@ -65,6 +65,14 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
   <img src="EDA/Injury feature importance.png" width="1000" alt="Logo" />
 </p>
 
+Since we determined that we would like to use a crash being injurious or not as the main feature we want to predict, it is very clear from the previous image that we are seeing a very large rural and urban divide. We removed all the ubran crashes from our dataset (The only urban area on our section of I-40 is Jackson, TN) and did some additional preliminary modeling and got the following graph. 
+
+<p align="center">
+  <img src="EDA/Jackson removed.png" width="1000" alt="Logo" />
+</p>
+
+Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments.
+
 ## <p align="center"> Modeling & Hypothesis Testing</p>
 
 ## <p align="center"> Results</p>

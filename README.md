@@ -207,7 +207,7 @@ Estimated Societal Benefit = 0.5 x 59 x $302,600  = **$8,926,700**
 ##### Conclusion
 Even under **fairly conservative assumptions**, the intervention is cost-effective, yielding a net benefit of **$6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023.
 
-
+----
 
 &nbsp;&nbsp;&nbsp;&nbsp; In conclusion, our data and modeling suggests that adding guardrails and redoing the lane markings and signage on the section of Interstate 40 from -88.663 to -88.605 longitudinally is worth further consideration and testing. Note that we would not recommend actual safety implementations based on our findings due to the exploratory nature of our analysis. Specifically, the same dataset was used for both hypothesis generation and testing, which can inflate the risk of false positives. While our modeling identified promising patterns, these results should be interpreted as hypothesis-generating rather than confirmatory. Further data collection and independent validation are necessary before drawing actionable conclusions.
 

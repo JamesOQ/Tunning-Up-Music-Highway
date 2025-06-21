@@ -80,11 +80,17 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
 
 Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
 
+The following map shows all rural crashes.
 <p align="center">
   <a href="https://jamesoq.github.io/Tuning-Up-Music-Highway/map_rural_crashes.html">
   <img src="EDA/rural crashes map.png" width="700" />
 </p>
+The following map only includes injurious crashes
 
+<p align="center">
+  <a href="https://jamesoq.github.io/Tuning-Up-Music-Highway/map_rural_injurious_crashes.html">
+  <img src="EDA/injurious rural crashes map.png" width="700" />
+</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp; Finally, we came up with a [list](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/safety_interventions_to_test.pdf) of hypotheses to test.
 

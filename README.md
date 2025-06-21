@@ -31,7 +31,7 @@ This involved highlighting the crash data we wanted to collect on the dashboards
 1. [Recent Crashes in Madison and Henderson Counties Dataset](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/Overall%20geospatial%20crash%20data%20for%20Madison%20and%20Henderson%20counties.csv),
 2. [Serious Injuries and Fatalities I-40 Dataset](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/Serious%20Injuries%20and%20Fatalities%20Data%20for%20I-40%20Tennessee.csv).
 
-Note that the first dataset only includes three features: latitutde, longitude, and crash type. While we did reach out to the responsible Tennessee state department to see if we could get a "Recent Crashes" dataset as detailed as the "Serious Injuries and Fatalities" dataset and recieved a reply, we never received that more detailed dataset.
+Note that the first dataset only includes three features: latitude, longitude, and crash type. While we did reach out to the responsible Tennessee state department to see if we could get a "Recent Crashes" dataset as detailed as the "Serious Injuries and Fatalities" dataset and received a reply, we never received that more detailed dataset.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Next, since the exact time and date of most crashes in the "Serious Injuries and Fatalities" dataset were recorded, but not the weather condition and road wetness at the time of each crash, we set out to create a data pipeline which would query a historical weather API to automatically add weather information to each crash datapoint. We did this by creating a Python notebook which queries the [Visual Crossing](https://www.visualcrossing.com/) weather API to update our dataset with the corresponding weather condition at each crash. That notebook can be found [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Weather%20data%20API%20query.ipynb). We also added a graded road wetness feature by finding the cumulative rainfall total six hours before the time each crash occurred using the grading:
 - more than 5 inches of cumulative rainfall is labeled as 'soaking',
@@ -83,13 +83,13 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
   <img src="EDA/Injury feature importance.png" width="1000" alt="Logo" />
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp; Since we determined that we would like to use a crash being injurious or not as the main feature we want to predict, it is very clear from the previous image that we are seeing a very large rural and urban divide. We removed all the ubran crashes from our dataset (The only urban area on our section of I-40 is Jackson, TN) and did some additional preliminary modeling and got the following graph. 
+&nbsp;&nbsp;&nbsp;&nbsp; Since we determined that we would like to use a crash being injurious or not as the main feature we want to predict, it is very clear from the previous image that we are seeing a very large rural and urban divide. We removed all the urban crashes from our dataset (The only urban area on our section of I-40 is Jackson, TN) and did some additional preliminary modeling and got the following graph. 
 
 <p align="center">
   <img src="EDA/Jackson removed.png" width="1000" alt="Logo" />
 </p>
 
-Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
+Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implementing our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
 
 The following map shows all rural crashes.
 
@@ -115,13 +115,13 @@ The following map only includes injurious crashes.
 - Adding lampposts to a small segment
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>
-&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divided our overall highway into several segments of equal length and chose the segment with the best combination of:
+&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approach to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divided our overall highway into several segments of equal length and chose the segment with the best combination of:
 - high injury rate,
 - high proportion of targetable crashes by our safety intervention, and
 - sufficient number of crashes in that segment for meaningful analysis.
 
 After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
-1. an intepretable logistic regression model using only the features which correspond to our safety intervention,
+1. an interpretable logistic regression model using only the features which correspond to our safety intervention,
 2. a full predictive logistic regression model, and
 3. a CatBoost model.
 
@@ -137,7 +137,7 @@ Note that the Bayesian logistic regression did predict an increase in injurious 
 &nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. The null hypothesis for each safety strategy is that it does not lead to a reduction in the number of injurious crashes on the chosen segment. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. We then evaluated the effectiveness of the intervention by comparing each model’s predicted outcomes before and after applying the intervention. To test the significance of these changes, we used bootstrap resampling. Specifically, we generated 10,000 bootstrap samples of the before-and-after datasets and computed the difference in their mean predicted outcomes for each sample. For each model, we calculated a p-value as the proportion of bootstrap sample differences that were less than or equal to zero. If zero fell outside the resulting confidence interval for both models, we rejected the null hypothesis that the intervention had no effect.
 
 ## <p align="center"> Results</p>
-&nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypotehsis test was the first one performed, the correction was unnecessary. 
+&nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypothesis test was the first one performed, the correction was unnecessary. 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. The following are the graphs of the bootstrapped sample means, the p-values, and the confidence intervals for both models for this safety intervention. We performed this hypothesis test in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Guardrail%20and%20Lane%20Marking%20Hypothesis%20Testing.ipynb).
 
@@ -149,7 +149,7 @@ Note that the Bayesian logistic regression did predict an increase in injurious 
   <img src="Results/bootstrapCB.png" width="700" alt="Logo" />
 </p>
 
-In fact, the effectiveness of adding guardrails in reducing injurious crashes is well established in the roadway safety literature, so this result is not particularly surprising. Moreover, this intervention proved to be cost-effective in our analysis. Assuming that each injurious crash our model predicted over the past three years had a 50% chance of actually occurring, we arrive at the following cost-benefit estimate:
+In fact, the effectiveness of adding guardrails in reducing injurious crashes is well established in the roadway safety literature, so this result is not particularly surprising. Moreover, this intervention proved to be cost-effective in our analysis. Assuming that each injurious crash our models predicted over the past three years had a 50% chance of actually occurring, we arrive at the following cost-benefit estimate:
 
 ---
 

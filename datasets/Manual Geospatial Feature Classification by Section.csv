@@ -60,7 +60,8 @@ Presence and type of median or divider,,,,,
 Lane markings and signage visibility,,,,,
 0 = Missing or faded,,,,,
 1 = Poor,,,,,-88.3489316 to -88.3368951
-2 = Average,,,-88.705593 to -88.555765,,"-88.361287 to -88.3607816; -88.3368951 to -88.19839"
+2 = Average,,,-88.705593 to -88.555765,,"-88.361287 to -88.3607816; -88.3368951 to -88.19839
+"
 3 = Clear and visible,-89.073096 to -88.889675,-88.889718  to -88.705593,,-88.555765 to -88.361287,-88.3607816 to -88.3489316; -88.3368951 to -88.3388951
 4 = Fresh or high-reflectivity,,,,,
 Nighttime lighting and visibility,,,,,

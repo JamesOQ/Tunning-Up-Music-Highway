@@ -223,6 +223,12 @@ Even under **fairly conservative assumptions**, the safety intervention of addin
 
 ----
 
+The notebooks for our other hypothesis tests can be found below:
+- [redoing lane markings and signage only](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/lane%20marking%20and%20signage%20hypothesis%20test.ipynb)
+- [repaving a segment](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/pavementcondition_hypothesistest.ipynb)
+- [adjusting posted speed limit near a high entrance/exit](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Speed%20limit%20hypothesis%20test.ipynb)
+
+
 &nbsp;&nbsp;&nbsp;&nbsp; In conclusion, our data and modeling suggests that adding guardrails and redoing the lane markings and signage on the section of Interstate 40 from -88.663 to -88.605 longitudinally is worth further consideration and testing. Note that we would not recommend actual safety implementations based on our findings due to the exploratory nature of our analysis. Specifically, the same dataset was used for both hypothesis generation and testing, which can inflate the risk of false positives. While our modeling identified promising patterns, these results should be interpreted as hypothesis-generating rather than confirmatory. Further data collection and independent validation are necessary before drawing actionable conclusions.
 
 

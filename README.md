@@ -172,11 +172,9 @@ In fact, the effectiveness of adding guardrails in reducing injurious crashes is
 
 ##### 3. Societal Cost of Injury (Conservative Assumption)
 
-- **Cost per Injurious Crash (Blended Conservative):** \$40,000  
-  *(reflecting possible-to-moderate injuries, per NSC/FHWA guidance)*
+- **Cost per Injurious Crash:** \$302,600  
+  *(Value comes from the table on page # from the US Department of Transportation [Cost-Benefit Analysis 2022 Update](https://www.transportation.gov/sites/dot.gov/files/2022-03/Benefit%20Cost%20Analysis%20Guidance%202022%20Update.pdf) )*
   
-https://www.transportation.gov/sites/dot.gov/files/2022-03/Benefit%20Cost%20Analysis%20Guidance%202022%20Update.pdf
-
 Using the **Logistic Regression estimate** of 59 crashes prevented with prediction threshold of 50%:
 
 \[

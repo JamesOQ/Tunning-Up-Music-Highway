@@ -46,7 +46,7 @@ The notebook for that can be found [here](https://github.com/JamesOQ/Tuning-Up-M
 The results of our geospatial feature recording can be found in [this google sheet](https://docs.google.com/spreadsheets/d/1zOUgfIgm1ztMX9Kwp7bK6PvghsTIMg_krHt-7JgNFRs/edit?gid=553882531#gid=553882531). Before tagging our datasets, we filtered our Recent Crashes dataset to only include the crashes which happened on I-40 using GeoPandas and the Tennessee roadways shapefile in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb). Finally, we automatically tagged our datasets with the geospatial features we recorded with [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Geospatial%20Automated%20Tagger.ipynb).
 
 ## <p align="center"> Exploratory Data Analysis</p>
-For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling. The following charts, as well as others, were created in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Crash%20dataset%20visualizations.ipynb).
+&nbsp;&nbsp;&nbsp;&nbsp; For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling. The following charts, as well as others, were created in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Crash%20dataset%20visualizations.ipynb).
 
 <p align="center">
   <img src="EDA/Crash Heatmap.png" width="700" alt="Logo" />
@@ -65,7 +65,7 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
   <img src="EDA/Injury feature importance.png" width="1000" alt="Logo" />
 </p>
 
-Since we determined that we would like to use a crash being injurious or not as the main feature we want to predict, it is very clear from the previous image that we are seeing a very large rural and urban divide. We removed all the ubran crashes from our dataset (The only urban area on our section of I-40 is Jackson, TN) and did some additional preliminary modeling and got the following graph. 
+&nbsp;&nbsp;&nbsp;&nbsp; Since we determined that we would like to use a crash being injurious or not as the main feature we want to predict, it is very clear from the previous image that we are seeing a very large rural and urban divide. We removed all the ubran crashes from our dataset (The only urban area on our section of I-40 is Jackson, TN) and did some additional preliminary modeling and got the following graph. 
 
 <p align="center">
   <img src="EDA/Jackson removed.png" width="1000" alt="Logo" />
@@ -73,7 +73,7 @@ Since we determined that we would like to use a crash being injurious or not as 
 
 Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
 
-Finally, we came up with a list of hypotheses to test.
+&nbsp;&nbsp;&nbsp;&nbsp; Finally, we came up with a list of hypotheses to test.
 
 - Adding guardrails and redoing lane markings and signage to a segment
 - Only redoing lane markings and signage to a segment
@@ -83,10 +83,35 @@ Finally, we came up with a list of hypotheses to test.
 - Adding lampposts to a small segment
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>
-We will now outline our general approch to modeling and hypothesis testing
+&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divded our overall highway into several segments of equal length and chose the segment with the best combination of
+- high injury rate
+- high proportion of targetable crashes by our safety intervention
+- sufficient number of crashes in that segment for meaningful analysis
+After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
+1. Intepretable logistic regression model using only the features which correspond to our safety intervention
+2. Full predictive logistic regression model
+3. CatBoost model
+
+&nbsp;&nbsp;&nbsp;&nbsp; We chose these models since our focus is on prediction and our data is purely categorical. Note that we added a Bayesian logistic regression model to the adding guardrails and redoing lane markings and signage hypothesis test but did not include it in the final analysis or any other hypothesis tests due to the following reasons:
+1. The model took over 10 hours to train on our data due to running many Markov Chain Monte Carlo simulations to simulate several unknown priors.
+2. The model lacked predictive power even with some good empirical priors
+3. The model was difficult to tune and didn't provide the uncertainty quantification we had hoped for.
+We also performed automatic tuning through a grid search for our CatBoost model and did some threshold selection using F1 score for both models. Even after this, our models still predicted a high number of false positives for injurious crashes and had average F1 scores around .5. However, we mostly settled for good recall because we would rather overpredict injuries than under when considering safety.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. Note that the null hypothesis for each safety strategy is that the strategy does not lead to a reduction in the number of injurious crashes. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. Then, we compared the before and after predictions of our model and tested the hypothesis through bootstrap testing. That is, we create 10,000 sample differences in before and after means from our models by boostrapping a before and after dataset, finding a difference in their means, then calculating a p-value for each model by finding the ratio of sample difference means less than or equal to 0. If 0 was outside the confidence interval for both models, we rejected the null hypothesis.
+
 ## <p align="center"> Results</p>
+&nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypotehsis test was the first one performed, the correction was unnecessary. 
+
+&nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. In fact, the high effectiveness of adding guardrails in reducing injurious crashes is well documented in the roadway safety literature, so this result is not too surprising. Moreover, this implementation turned out to be cost effect. Indeed, if each injurious crash our madel would have predicted to have happened the previous 3 years had a 50% cahnce of happening, we get the following crash ebenefit analysis:
 
 
+
+Do note that the actual number of crashes that happened on that highway segment is actually 25. 
+
+## <p align="center"> Future Work </p>
+
+## <p align="center"> Description of Repository</p>
 
 
 

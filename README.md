@@ -77,7 +77,7 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
 
 Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implemeneting our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Finally, we came up with a list of hypotheses to test.
+&nbsp;&nbsp;&nbsp;&nbsp; Finally, we came up with a [list](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/safety_interventions_to_test.pdf) of hypotheses to test.
 
 - Adding guardrails and redoing lane markings and signage to a segment
 - Only redoing lane markings and signage to a segment
@@ -87,10 +87,10 @@ Since it appears that there is a stark contrast between urban and rural crashes 
 - Adding lampposts to a small segment
 
 ## <p align="center"> Modeling & Hypothesis Testing</p>
-&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divded our overall highway into several segments of equal length and chose the segment with the best combination of
-- high injury rate
-- high proportion of targetable crashes by our safety intervention
-- sufficient number of crashes in that segment for meaningful analysis
+&nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approch to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divded our overall highway into several segments of equal length and chose the segment with the best combination of:
+- high injury rate,
+- high proportion of targetable crashes by our safety intervention, and
+- sufficient number of crashes in that segment for meaningful analysis.
 
 After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
 1. Intepretable logistic regression model using only the features which correspond to our safety intervention

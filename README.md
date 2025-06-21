@@ -90,6 +90,7 @@ Since it appears that there is a stark contrast between urban and rural crashes 
 - high injury rate
 - high proportion of targetable crashes by our safety intervention
 - sufficient number of crashes in that segment for meaningful analysis
+
 After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
 1. Intepretable logistic regression model using only the features which correspond to our safety intervention
 2. Full predictive logistic regression model
@@ -99,6 +100,7 @@ After, our segment was chosen, we held out all of the crashes that happened on t
 1. The model took over 10 hours to train on our data due to running many Markov Chain Monte Carlo simulations to simulate several unknown priors.
 2. The model lacked predictive power even with some good empirical priors
 3. The model was difficult to tune and didn't provide the uncertainty quantification we had hoped for.
+
 We also performed automatic tuning through a grid search for our CatBoost model and did some threshold selection using F1 score for both models. Even after this, our models still predicted a high number of false positives for injurious crashes and had average F1 scores around .5. However, we mostly settled for good recall because we would rather overpredict injuries than under when considering safety.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. Note that the null hypothesis for each safety strategy is that the strategy does not lead to a reduction in the number of injurious crashes. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. Then, we compared the before and after predictions of our model and tested the hypothesis through bootstrap testing. That is, we create 10,000 sample differences in before and after means from our models by boostrapping a before and after dataset, finding a difference in their means, then calculating a p-value for each model by finding the ratio of sample difference means less than or equal to 0. If 0 was outside the confidence interval for both models, we rejected the null hypothesis.

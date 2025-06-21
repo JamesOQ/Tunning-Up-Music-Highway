@@ -219,7 +219,7 @@ Estimated Societal Benefit = 0.5 x 59 x $302,600  = **$8,926,700**
 ---
 
 ##### Conclusion
-Even under **fairly conservative assumptions**, the intervention is cost-effective, yielding a net benefit of **$6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023.
+Even under **fairly conservative assumptions**, the safety intervention of adding guardrails and redoing lane markings and signage to the segment with longitude range (-88.663, -88.605] is cost-effective, yielding a net benefit of **$6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023.
 
 ----
 

@@ -8,14 +8,15 @@ Acknowledgements: We would first like to thank everyone at the Erdős Institute 
 
 #  Table of Contents</p>
 
-- [Introduction](#introduction)
-- [Dataset Generation](#dataset-generation)
-- [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Modeling & Hypothesis Testing](#modeling--hypothesis-testing)
-- [Results](#results)
-- [Conclusion](#conclusion)
-- [Future Work](#future-work)
-- [Description of Repository](#description-of-repository)
+1. [Introduction](#introduction)  
+2. [Dataset Generation](#dataset-generation)  
+3. [Exploratory Data Analysis](#exploratory-data-analysis)  
+4. [Modeling & Hypothesis Testing](#modeling--hypothesis-testing)  
+5. [Results](#results)  
+6. [Conclusion](#conclusion)  
+7. [Future Work](#future-work)  
+8. [Description of Repository](#description-of-repository)  
+
 
 
 ##  <p align="center"> Introduction</p>

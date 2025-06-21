@@ -51,6 +51,13 @@ For our exploratory data analysis, our goal was to find evidence for effective s
 <p align="center">
   <img src="EDA/Crash Heatmap.png" width="700" alt="Logo" />
 </p>
+
+<p align="center">
+  <img src="EDA/Crash Severity map.png" width="700" alt="Logo" />
+</p>
+## <p align="center"> Modeling & Hypothesis Testing</p>
+
+
 ## <p align="center"> Modeling & Hypothesis Testing</p>
 
 ## <p align="center"> Results</p>

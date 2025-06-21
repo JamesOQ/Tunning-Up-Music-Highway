@@ -87,7 +87,7 @@ The following map shows all rural crashes.
   <img src="EDA/rural crashes map.png" width="700" />
 </p>
 
-The following map only includes injurious crashes
+The following map only includes injurious crashes.
 
 <p align="center">
   <a href="https://jamesoq.github.io/Tuning-Up-Music-Highway/map_rural_injurious_crashes.html">

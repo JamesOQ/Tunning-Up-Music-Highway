@@ -2,8 +2,8 @@ arviz==0.21.0                   # For Bayesian model diagnostics
 catboost==1.2.8                 # Gradient boosting model
 folium==0.19.7                  # Interactive maps
 geopandas==1.1.0                # Geospatial dataframes
-imbalanced-learn==0.13.0       # Handling imbalanced datasets (keep one version only)
-ipython==8.30.0                 # Interactive environment (pick one version)
+imbalanced-learn==0.13.0       # Handling imbalanced datasets 
+ipython==8.30.0                 # Interactive environment 
 matplotlib==3.3.4              # Plotting
 numpy==1.19.2                  # Core numerical library
 pandas==2.3.0                  # Data manipulation

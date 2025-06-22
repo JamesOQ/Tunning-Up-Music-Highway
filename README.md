@@ -89,7 +89,7 @@ We also did some preliminary modeling to get an idea of feature importance. Thes
   <img src="EDA/Jackson removed.png" width="1000" alt="Logo" />
 </p>
 
-Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implementing our safety strategies on rural segments. We created some interactive maps through html which can be accessed by clicking the images below.
+Since it appears that there is a stark contrast between urban and rural crashes and rural segments of our highway are more targetable for safety interventions due to a combination of higher crash injury rate and lack of many of our features, we decided to remove the urban crashes (those in Jackson, TN) from the dataset to focus solely on implementing our safety strategies on rural segments. We created some interactive .html maps using the Python [Folium](https://python-visualization.github.io/folium/latest/) library which can be accessed by clicking the images below.
 
 The following map shows all rural crashes.
 

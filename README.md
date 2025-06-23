@@ -247,6 +247,40 @@ The following is a list of suggestions of important future work that came up ove
 
 Files Included:
 
+Checkpoints: 
+- Contains all required PDF files for the written checkpoints submitted during the project.
+
+
+
+#### Code
+
+1. **`Geospatial Automated Tagger.ipynb`**  
+   Adds geospatial feature categories to the crash dataset using a manually recorded spreadsheet of road features (e.g., guardrails, pavement type).
+
+2. **`Guardrail and Lane Marking Hypothesis Testing.ipynb`**  
+   Contains hypothesis tests evaluating the impact of adding guardrails and improving lane markings/signage on crash reduction.
+
+3. **`I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb`**  
+   Filters out crashes that did not occur on I-40 from a dataset of all reported crashes in Madison and Henderson counties (2023–May 2025).
+
+4. **`Pavement Condition Hypothesis Test.ipynb`**  
+   Contains a hypothesis test assessing whether repaving a specific road segment improves safety outcomes.
+
+5. **`Road Wetness API Query.ipynb`**  
+   Queries 6-hour cumulative precipitation data prior to each crash using the Visual Crossing weather API.
+
+6. **`Speed Limit Hypothesis Test.ipynb`**  
+   Tests whether reducing the speed limit on a selected segment leads to fewer crashes.
+
+7. **`Weather Data API Query.ipynb`**  
+   Retrieves historical weather data (temperature, precipitation, conditions) based on crash time and location using the Visual Crossing API.
+
+> ⚠️ **Note**: File 8 appears to duplicate #2 in content/description. You may want to remove or rename it for clarity:
+> 
+> `Speed limit hypothesis test.ipynb` — (Duplicate) Mentions lane markings/signage again — same as #2?
+
+
+
 datasets:
   1. Serious Injuries and Fatalities Data for I-40 Tennessee.csv
      - This is our main dataset which contains all fatal and serious injury causing crashes which happened on I-40 Tennessee between 2023 and 2025.
@@ -263,10 +297,3 @@ datasets:
        - between 0 and 1 inches of cumulative rainfall is 'damp'
        - otherwise 'dry'.
 
-Code:
-  1. Weather data API query.ipynb
-     - Program that queries historical weather data from the Visual Crossing weather API based on location, date, and time.
-  2. Road Wetness API query.ipynb
-     - Program that queries cumulative precipitation amount from the Visual Crossing weather API based on the 6 hours before the crash. 
-  3. Geospatial Automated Tagger.ipynb
-     - Program which takes our excel sheet of manually tagged geospatial features from Google Maps and, for each feature and datapoint in our dataset, tags the category of that feature which corresponds to the longitude of the crash location of the datapoint.

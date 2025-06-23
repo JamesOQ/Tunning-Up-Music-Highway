@@ -324,7 +324,7 @@ This directory contains all notebooks, scripts, plots, and intermediate data use
   Output logs and metrics from CatBoost model training (for debugging and tracking).
 
 
-### 🗂️ Datasets
+#### Datasets
 
 This folder contains all datasets used for filtering, feature tagging, and analysis of crash data along I-40 in Madison and Henderson counties.
 
@@ -347,4 +347,4 @@ This folder contains all datasets used for filtering, feature tagging, and analy
   I-40 crash data filtered to include only rural areas outside of Jackson, TN.
 
 - **`Serious Injuries and Fatalities Data for I-40 Tennessee.csv`**  
-  Dataset taken directly from the Tennessee Department of Safety and Homeland Security Serious Injuries and Fatalities [dashboard](https://www.tn.gov/safety/stats/dashboards/fatalseriousinjurycrashes.html)
+  Dataset taken directly from the Tennessee Department of Safety and Homeland Security Serious Injuries and Fatalities [dashboard](https://www.tn.gov/safety/stats/dashboards/fatalseriousinjurycrashes.html).

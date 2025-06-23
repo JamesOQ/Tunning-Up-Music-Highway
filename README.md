@@ -281,7 +281,7 @@ Files Included:
 
 #### EDA
 
-This directory contains all notebooks, scripts, plots, and intermediate data used for exploring and visualizing crash data along the I-40 corridor.
+This directory contains all notebooks, plots, and intermediate data used for exploring and visualizing crash data along the I-40 corridor.
 
 ##### Notebooks & Scripts
 - **`Crash dataset visualizations.ipynb`**  

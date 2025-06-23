@@ -19,10 +19,10 @@ Acknowledgements: We would first like to thank everyone at the Erdős Institute 
 
 
 
-##  <p align="center"> Introduction</p>
+## Introduction
 &nbsp;&nbsp;&nbsp;&nbsp; Often regarded by residents, and even [some](https://www.dangerousroads.org/north-america/usa/10683-i-40-the-most-dangerous-road-in-nashville-for-auto-accidents.html) [observers](https://www.gkbm.com/blog/interstate-40-car-accidents-tennessee/), as the most dangerous highway in Tennessee, the stretch of Interstate 40 between Memphis and Nashville, known as Music Highway, could use a serious tuning up. This project aims to evaluate the efficacy and cost-effectiveness of various safety interventions on selected segments of Music Highway in Madison and Henderson counties using data modeling and hypothesis testing. To this end, we first obtained a recent crash dataset from the Tennessee Department of Safety and Homeland Security, which includes crash severity and GPS location. After filtering the dataset to include only crashes occurring on the relevant section of I-40, we manually annotated each crash with geospatial features (e.g., presence of guardrails, type of median, pavement condition) using Google Maps. We then conducted exploratory data analysis to identify promising strategies and target segments, performed model-based hypothesis testing to assess the impact of safety features on crash severity, and developed a cost-benefit analysis for the most effective interventions.
 
-## <p align="center"> Dataset Generation</p>
+## Dataset Generation
 &nbsp;&nbsp;&nbsp;&nbsp; Since physical safety strategies are the type of strategy most feasible for our modeling approach, we set out to create a dataset which would allow us to understand how severity of a crash (in terms of human harm) would be influenced by the various geographic and physical features of the highway near the crash. Our first step was to collect recent (2023-2025) crash data from the dashboards publicly provided by the Tennessee Department of Safety and Homeland Security:
 1. [Recent Crashes Dashboard](https://www.tn.gov/safety/stats/dashboards/recent-crashes.html)
 2. [Serious Injuries and Fatalities Dashboard](https://www.tn.gov/safety/stats/dashboards/fatalseriousinjurycrashes.html)
@@ -63,7 +63,7 @@ We recorded the feature categories by following our highway section and jotting 
 - [All recent crashes on I-40 in Madison and Henderson Counties with geospatial tags]([datasets/ALL_I40_crash_data_final.csv](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/ALL_I40_crash_data_final.csv))
 - [Serious Injuries and Fatalities on I-40 in Madison and Henderson Counties with weather condition, wetness, and geospatial features added](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/crash_data_severe_injuries_and_fatalities_final.csv)
 
-## <p align="center"> Exploratory Data Analysis</p>
+## Exploratory Data Analysis
 &nbsp;&nbsp;&nbsp;&nbsp; For our exploratory data analysis, our goal was to find evidence for effective strategies to pursue and suitable segments to implement them on. We accomplished this through heatmap visualizations and feature importance rankings from preliminary modeling. The following charts, as well as others, were created in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/EDA/Crash%20dataset%20visualizations.ipynb).
 
 <p align="center">
@@ -114,7 +114,7 @@ The following map only includes injurious crashes.
 - Adding dividers to the median of a segment
 - Adding lampposts to a small segment
 
-## <p align="center"> Modeling & Hypothesis Testing</p>
+## Modeling & Hypothesis Testing
 &nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approach to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divided our overall highway into several segments of equal length and chose the segment with the best combination of:
 - high injury rate,
 - high proportion of targetable crashes by our safety intervention, and
@@ -136,7 +136,7 @@ Note that the Bayesian logistic regression did predict an increase in injurious 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. The null hypothesis for each safety strategy is that it does not lead to a reduction in the number of injurious crashes on the chosen segment. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. We then evaluated the effectiveness of the intervention by comparing each model’s predicted outcomes before and after applying the intervention. To test the significance of these changes, we used bootstrap resampling. Specifically, we generated 10,000 bootstrap samples of the before-and-after datasets and computed the difference in their mean predicted outcomes for each sample. For each model, we calculated a p-value as the proportion of bootstrap sample differences that were less than or equal to zero. If zero fell outside the resulting confidence interval for both models, we rejected the null hypothesis that the intervention had no effect.
 
-## <p align="center"> Results</p>
+## Results
 &nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypothesis test was the first one performed, the correction was unnecessary. 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Overall, adding guardrails and redoing the lane markings and signage to the segment with longitude range -88.663 to -88.605 was the only strategy for which both of our models showed a statistically significant reduction in injurious crashes. The following are the graphs of the bootstrapped sample means, the p-values, and the confidence intervals for both models for this safety intervention. We performed this hypothesis test in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Guardrail%20and%20Lane%20Marking%20Hypothesis%20Testing.ipynb).
@@ -219,7 +219,7 @@ Estimated Societal Benefit = 0.5 x 59 x $302,600  = **$8,926,700**
 ---
 
 ##### Conclusion
-Even under **fairly conservative assumptions**, the safety intervention of adding guardrails and redoing lane markings and signage to the segment with longitude range (-88.663, -88.605] is cost-effective, yielding a net benefit of **$6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023.
+Even under **fairly conservative assumptions**, the safety intervention of adding guardrails and redoing lane markings and signage to the segment with longitude range (-88.663, -88.605] is cost-effective, yielding a net benefit of **$6,688,384** for this 3.26-mile segment had this strategy been implemented in 2023 and continued through mid-2025.
 
 ----
 
@@ -233,13 +233,14 @@ While we conducted a hypothesis test to evaluate whether reducing the posted spe
 
 
 
-## <p align="center"> Future Work </p>
+## Future Work
 The following is a list of suggestions of important future work that came up over the duration of this project's creation.
 
 
 - Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Streetview. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy.
 - While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.
-## <p align="center"> Description of Repository</p>
+  
+## Description of Repository
 
 
 

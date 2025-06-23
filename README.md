@@ -41,7 +41,7 @@ Note that the first dataset only includes three features: latitude, longitude, a
 
 The notebook for that can be found [here](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Road%20Wetness%20API%20query.ipynb). While the weather and road surface wetness features were helpful during exploratory data analysis, we did not use these features in our final analysis.
 
-&nbsp;&nbsp;&nbsp;&nbsp; The key aspect of our feature engineering was the tagging of geospatial features manually recorded from Google Maps. Since all images on Google Maps of our segment on I-40 are consistent with the timeframe of crashes in our datasets (2023-2025), and no major construction projects occurred on this segment during that timeframe, we expect the geospatial features on Google Maps to be mostly consistent with the geospatial features at the time of each crash. We determined it would be best to manually record features through Google Streetview to maintain accuracy. The following table shows the features and categories that we recorded:
+&nbsp;&nbsp;&nbsp;&nbsp; The key aspect of our feature engineering was the tagging of geospatial features manually recorded from Google Maps. Since all images on Google Maps of our segment on I-40 are consistent with the timeframe of crashes in our datasets (2023-2025), and no major construction projects occurred on this segment during that timeframe, we expect the geospatial features on Google Maps to be mostly consistent with the geospatial features at the time of each crash. We determined it would be best to manually record features through Google Street View to maintain accuracy. The following table shows the features and categories that we recorded:
 | Feature                                | 0                        | 1                        | 2                        | 3                        | 4                               |
 |----------------------------------------|--------------------------|--------------------------|--------------------------|--------------------------|----------------------------------|
 | **Presence of guardrails**             | None                     | One side only            | Both sides               | Partial or damaged       | –                                |
@@ -237,7 +237,7 @@ While we conducted a hypothesis test to evaluate whether reducing the posted spe
 The following is a list of suggestions of important future work that came up over the duration of this project's creation.
 
 
-- Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Streetview. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy.
+- Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Street View. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy in the near term.
 - While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.
   
 ## Description of Repository

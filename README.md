@@ -284,13 +284,13 @@ Files Included:
 This directory contains all notebooks, scripts, plots, and intermediate data used for exploring and visualizing crash data along the I-40 corridor.
 
 ##### Notebooks & Scripts
-- **`Crash dataset visualizations.ipynb` / `.py`**  
+- **`Crash dataset visualizations.ipynb`**  
   Generates summary plots and maps to explore crash patterns by severity, location, and road features.
 
 - **`Features_Fatal.ipynb` / `Features_PropertyDamage.ipynb` / `Features_Some Injury.ipynb`**  
   Analyze and visualize key feature distributions by crash severity category.
 
-- **`CatBoost I-40.ipynb` / `.py`**  
+- **`CatBoost I-40.ipynb`**  
   Builds and evaluates a CatBoost classifier on the I-40 crash dataset.
 
 - **`Logisticregression.ipynb`**  
@@ -320,26 +320,31 @@ This directory contains all notebooks, scripts, plots, and intermediate data use
   Final processed crash dataset used across modeling and visualization tasks.
 
 ##### Misc
-- **`requirements.txt`**  
-  Python package dependencies for running EDA notebooks.
-
 - **`catboost_info/`**  
   Output logs and metrics from CatBoost model training (for debugging and tracking).
 
 
-datasets:
-  1. Serious Injuries and Fatalities Data for I-40 Tennessee.csv
-     - This is our main dataset which contains all fatal and serious injury causing crashes which happened on I-40 Tennessee between 2023 and 2025.
-     
-  2. Overall crash data for Madison and Henderson counties.csv
-     - Secondary dataset which contains the geospatial coordinates and severity of crash for each crash that happened in either Madison or Henderson Counties between 2023 and 2025.
-  
-  3. Serious Injuries and Fatalities Data for I-40 Tennessee *with weather*.csv
-     - An update to our main dataset which includes added weather condition data queried by data, time, and location from Visual Crossing.
-  
-  4. Serious Injuries and Fatalities Data for I-40 Tennessee *with weather and wetness*.csv
-     - Another update to our main dataset which grades the wetness of the road at the time of crash based on the cumulative rainfall of the 6 previous hours. The grading is as follows:
-       - more than 1 inch of cumulative rainfall is labeled as 'very wet'
-       - between 0 and 1 inches of cumulative rainfall is 'damp'
-       - otherwise 'dry'.
+### 🗂️ Datasets
 
+This folder contains all datasets used for filtering, feature tagging, and analysis of crash data along I-40 in Madison and Henderson counties.
+
+- **`ALL_I40_crash_data_final.csv`**  
+  Full crash dataset for I-40, including all crash types across the entire study area.
+
+- **`crash_data_severe_injuries_and_fatalities_final.csv`**  
+  Severe injuries and fatalities dataset after tagging geospatial features.
+
+- **`Filtered_I40_Crashes_GEOSPATIAL_JOIN.csv`**  
+  Crash data after geospatial filtering to exclude non-I-40 crashes within the counties.
+
+- **`Manual Geospatial Feature Classification by Section.csv`**  
+  Manually recorded geospatial attributes (e.g., guardrails, pavement, signage) used to tag crash data by road segment.
+
+- **`Overall geospatial crash data for Madison and Henderson counties.csv`**  
+  Comprehensive crash data across both counties from 2023 to mid 2025 taken directly from the Tennessee Department of Safety and Homeland Security Recent Crashes [dashboard](https://www.tn.gov/safety/stats/dashboards/recent-crashes.html).
+
+- **`rural I-40 Madison and Henderson crashes.csv`**  
+  I-40 crash data filtered to include only rural areas outside of Jackson, TN.
+
+- **`Serious Injuries and Fatalities Data for I-40 Tennessee.csv`**  
+  Dataset taken directly from the Tennessee Department of Safety and Homeland Security Serious Injuries and Fatalities [dashboard](https://www.tn.gov/safety/stats/dashboards/fatalseriousinjurycrashes.html)

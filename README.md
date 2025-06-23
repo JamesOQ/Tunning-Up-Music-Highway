@@ -247,8 +247,9 @@ The following is a list of suggestions of important future work that came up ove
 
 Files Included:
 
-Checkpoints: 
-- Contains all required PDF files for the written checkpoints submitted during the project.
+#### Checkpoints
+
+- Contains all required PDF files for the written checkpoints submitted at key stages of the project, including proposal drafts, progress updates, and the final report.
 
 
 
@@ -275,10 +276,55 @@ Checkpoints:
 7. **`Weather Data API Query.ipynb`**  
    Retrieves historical weather data (temperature, precipitation, conditions) based on crash time and location using the Visual Crossing API.
 
-> ⚠️ **Note**: File 8 appears to duplicate #2 in content/description. You may want to remove or rename it for clarity:
-> 
-> `Speed limit hypothesis test.ipynb` — (Duplicate) Mentions lane markings/signage again — same as #2?
+8.  **`lane marking and signage hypothesis test.ipynb`**  
+   Contains hypothesis test evaluating the impact of improving lane markings/signage on crash reduction.
 
+#### EDA
+
+This directory contains all notebooks, scripts, plots, and intermediate data used for exploring and visualizing crash data along the I-40 corridor.
+
+##### Notebooks & Scripts
+- **`Crash dataset visualizations.ipynb` / `.py`**  
+  Generates summary plots and maps to explore crash patterns by severity, location, and road features.
+
+- **`Features_Fatal.ipynb` / `Features_PropertyDamage.ipynb` / `Features_Some Injury.ipynb`**  
+  Analyze and visualize key feature distributions by crash severity category.
+
+- **`CatBoost I-40.ipynb` / `.py`**  
+  Builds and evaluates a CatBoost classifier on the I-40 crash dataset.
+
+- **`Logisticregression.ipynb`**  
+  Trains and evaluates a logistic regression model on injury/fatality outcomes.
+
+- **`random forest.ipynb`**  
+  Applies a random forest model for comparison with CatBoost and logistic regression.
+
+- **`SHAP.ipynb`, `SHAP2.ipynb`, `SHAP3.ipynb`**  
+  Generate SHAP value explanations to interpret feature importance in crash severity prediction.
+
+##### Visualizations
+- **`Crash Heatmap.png`, `Crash Severity map.png`, `rural crashes map.png`, `injurious rural crashes map.png`**  
+  Maps highlighting crash density, severity, and rural crash distributions.
+
+- **`Category distribution.png`, `fatality feature importance.png`, `Injury feature importance.png`**  
+  Summary plots showing categorical feature distributions and model-based importance scores.
+
+- **`Jackson removed.png`**  
+  Visualization after filtering out crashes from Jackson for focused analysis.
+
+- **`SHAP2 detailed summary plotPresence_of_guardrails.png`, `SHAP2Plot resultsPresence_of_guardrails.png`**  
+  SHAP summary plots showing the effect of guardrails on crash outcomes.
+
+##### Data
+- **`crash_data_severe_injuries_and_fatalities_final.xlsx`**  
+  Final processed crash dataset used across modeling and visualization tasks.
+
+##### Misc
+- **`requirements.txt`**  
+  Python package dependencies for running EDA notebooks.
+
+- **`catboost_info/`**  
+  Output logs and metrics from CatBoost model training (for debugging and tracking).
 
 
 datasets:

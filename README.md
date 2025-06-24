@@ -237,7 +237,7 @@ While we conducted a hypothesis test to evaluate whether reducing the posted spe
 The following is a list of suggestions of important future work that came up over the duration of this project's creation.
 
 - While our modeling showed a strong correlation between the presence of guardrails and a reduction in injury rate, by no means did we demonstrate a causal relationship between these two features. It would be interesting to repeat and redesign this experiement with causal modeling in mind.
-- Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Street View. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy in the near term.
+- Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Street View. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy with current techniques.
 - While the goal of this project is to reduce severity of crashes, one could also test methods to prevent crashes in the first place. However, this problem is much more subtle than ours and would require entirely different methods.
   
 ## Description of Repository

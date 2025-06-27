@@ -114,6 +114,8 @@ The following map only includes injurious crashes.
 - Adding dividers to the median of a segment
 - Adding lampposts to a small segment
 
+Our final analysis included the first three strategies on the above list.
+
 ## Modeling & Hypothesis Testing
 &nbsp;&nbsp;&nbsp;&nbsp; We will now outline our general approach to modeling and hypothesis testing. First, we selected the safety intervention to test from our list. Then, to choose which segment to test it on, we divided our overall highway into several segments of equal length and chose the segment with the best combination of:
 - high injury rate,

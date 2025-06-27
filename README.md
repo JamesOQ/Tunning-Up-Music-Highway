@@ -60,7 +60,7 @@ The notebook for that can be found [here](https://github.com/JamesOQ/Tuning-Up-M
 
 
 We recorded the feature categories by following our highway section and jotting down the longitude ranges where that category was present. The results of our geospatial feature recording can be found in [this copy of our google sheet](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/Manual%20Geospatial%20Feature%20Classification%20by%20Section.csv). Before tagging our datasets, we filtered our "Recent Crashes" dataset to only include the crashes which happened on I-40 using GeoPandas and the Tennessee roadways shapefile in [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb). Finally, we automatically tagged our datasets with the geospatial features we recorded with [this notebook](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Geospatial%20Automated%20Tagger.ipynb). Our final datasets are given below.
-- [All recent crashes on I-40 in Madison and Henderson Counties with geospatial tags]([datasets/ALL_I40_crash_data_final.csv](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/ALL_I40_crash_data_final.csv))
+- [All recent crashes on I-40 in Madison and Henderson Counties with geospatial tags](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/ALL_I40_crash_data_final.csv)
 - [Serious Injuries and Fatalities on I-40 in Madison and Henderson Counties with weather condition, wetness, and geospatial features added](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/datasets/crash_data_severe_injuries_and_fatalities_final.csv)
 
 ## Exploratory Data Analysis

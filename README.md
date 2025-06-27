@@ -122,7 +122,7 @@ Our final analysis included the first three strategies on the above list.
 - high proportion of targetable crashes by our safety intervention, and
 - sufficient number of crashes in that segment for meaningful analysis.
 
-After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained the following 3 models:
+After, our segment was chosen, we held out all of the crashes that happened on that segment from our dataset and created training and validation sets from the rest. Since the balance between injurious and non-injurious crashes is quite lopsided, we used random oversampling to balance out the training set. Next, we trained and cross validated the following 3 models:
 1. an interpretable logistic regression model using only the features which correspond to our safety intervention,
 2. a full predictive logistic regression model, and
 3. a CatBoost model.
@@ -136,7 +136,7 @@ Note that the Bayesian logistic regression did predict an increase in injurious 
 
 &nbsp;&nbsp;&nbsp;&nbsp; We also applied automatic hyperparameter tuning using grid search for our CatBoost model and selected optimal decision thresholds for both models based on the F1 score. Despite these efforts, the models continued to produce a high number of false positives for injurious crashes, with average F1 scores around 0.5. However, we prioritized achieving high recall for injurious crash prediction, as it is more important from a safety perspective to overpredict injuries than to risk underpredicting them.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Following the training and tuning of our models, we ran our hypothesis test for the chosen safety intervention as follows. The null hypothesis for each safety strategy is that it does not lead to a reduction in the number of injurious crashes on the chosen segment. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. We then evaluated the effectiveness of the intervention by comparing each model’s predicted outcomes before and after applying the intervention. To test the significance of these changes, we used bootstrap resampling. Specifically, we generated 10,000 bootstrap samples of the "before" dataset and the "after" dataset and computed the difference in their mean predicted outcomes for each sample. For each model, we calculated a p-value as the proportion of bootstrap sample differences that were less than or equal to zero. If zero fell outside the resulting confidence interval for both models, we rejected the null hypothesis that the intervention had no effect.
+&nbsp;&nbsp;&nbsp;&nbsp; Following the training, tuning, and validating of our models, we ran our hypothesis test for the chosen safety intervention as follows. The null hypothesis for each safety strategy is that it does not lead to a reduction in the number of injurious crashes on the chosen segment. First, we ran the models on our held-out segment data, first as-is then followed by changing the feature categories on all datapoints to match the safety intervention. We then evaluated the effectiveness of the intervention by comparing each model’s predicted outcomes before and after applying the intervention. To test the significance of these changes, we used bootstrap resampling. Specifically, we generated 10,000 bootstrap samples of the "before" dataset and the "after" dataset and computed the difference in their mean predicted outcomes for each sample. For each model, we calculated a p-value as the proportion of bootstrap sample differences that were less than or equal to zero. If zero fell outside the resulting confidence interval for both models, we rejected the null hypothesis that the intervention had no effect.
 
 ## Results
 &nbsp;&nbsp;&nbsp;&nbsp; Before discussing our results, there is one thing we would like to make clear. Since we trained our models on nearly identical datasets (only a small number of segment specific crashes held out) across all of our hypothesis tests, we are more likely to run into type I errors due to the multiple comparisons problem. We would have addressed this by applying Bonferroni correction to our p-values. However, since our only statistically significant hypothesis test was the first one performed, the correction was unnecessary. 
@@ -236,7 +236,8 @@ While we conducted a hypothesis test to evaluate whether reducing the posted spe
 
 
 ## Future Work
-The following is a list of suggestions of important future work that came up over the duration of this project's creation.
+
+We conducted a [post-hoc analysis](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/HT_all.ipynb) to give suggestions of additional geospatial features prime for testing. The following is a list of suggestions of important future directions that came up over the duration of this project's creation.
 
 - While our modeling showed a strong correlation between the presence of guardrails and a reduction in injury rate, by no means did we demonstrate a causal relationship between these two features. It would be interesting to repeat and redesign this experiement with causal modeling in mind.
 - Perhaps the biggest bottleneck in our analysis pipeline was having to record geospatial features from Google Maps manually. It would be incredibly helpful to develop automated deep learning methods that could accurately record highway geospatial features from Google Street View. However, this would be a significant project in and of itself and mostly likely would not surpass human accuracy with current techniques.
@@ -263,17 +264,17 @@ Files Included:
 2. **`Guardrail and Lane Marking Hypothesis Testing.ipynb`**  
    Contains hypothesis tests evaluating the impact of adding guardrails and improving lane markings/signage on crash reduction.
 
-3. **`I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb`**  
+3. **'HT_all.ipynb'**
+   Contains a post-hoc analysis of features for future testing.
+
+4. **`I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb`**  
    Filters out crashes that did not occur on I-40 from a dataset of all reported crashes in Madison and Henderson counties (2023–May 2025).
 
-4. **`Pavement Condition Hypothesis Test.ipynb`**  
+5. **`Pavement Condition Hypothesis Test.ipynb`**  
    Contains a hypothesis test assessing whether repaving a specific road segment improves safety outcomes.
 
-5. **`Road Wetness API Query.ipynb`**  
+6. **`Road Wetness API Query.ipynb`**  
    Queries 6-hour cumulative precipitation data prior to each crash using the Visual Crossing weather API.
-
-6. **`Speed Limit Hypothesis Test.ipynb`**  
-   Tests whether reducing the speed limit on a selected segment leads to fewer crashes.
 
 7. **`Weather Data API Query.ipynb`**  
    Retrieves historical weather data (temperature, precipitation, conditions) based on crash time and location using the Visual Crossing API.

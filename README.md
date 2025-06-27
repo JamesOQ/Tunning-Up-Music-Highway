@@ -227,7 +227,7 @@ Even under **fairly conservative assumptions**, the safety intervention of addin
 
 The notebooks for our other hypothesis tests can be found below:
 - [redoing lane markings and signage only](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/lane%20marking%20and%20signage%20hypothesis%20test.ipynb)
-- [repaving a segment](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/pavementcondition_hypothesistest.ipynb)
+- [repaving a segment]([https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/pavementcondition_hypothesistest.ipynb](https://github.com/JamesOQ/Tuning-Up-Music-Highway/blob/main/Code/Pavement%20condition%20hypothesis%20test.ipynb))
 
 While we conducted a hypothesis test to evaluate whether reducing the posted speed limit on a segment would lower the crash injury rate, a post-hoc analysis revealed that the sample size for the target category of this intervention in the training data was too small to support valid inference. As a result, we chose to withhold tests for this strategy entirely.
 

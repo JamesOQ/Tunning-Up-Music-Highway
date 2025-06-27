@@ -265,21 +265,22 @@ Files Included:
    Contains hypothesis tests evaluating the impact of adding guardrails and improving lane markings/signage on crash reduction.
 
 3. **`HT_all.ipynb`**
-   Contains a post-hoc analysis of features for future testing.
 
-5. **`I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb`**  
+    Contains a post-hoc analysis of features for future testing.
+
+4. **`I40_Crash_Filter_GEOSPATIAL_JOIN.ipynb`**  
    Filters out crashes that did not occur on I-40 from a dataset of all reported crashes in Madison and Henderson counties (2023–May 2025).
 
-6. **`Pavement Condition Hypothesis Test.ipynb`**  
+5. **`Pavement Condition Hypothesis Test.ipynb`**  
    Contains a hypothesis test assessing whether repaving a specific road segment improves safety outcomes.
 
-7. **`Road Wetness API Query.ipynb`**  
+6. **`Road Wetness API Query.ipynb`**  
    Queries 6-hour cumulative precipitation data prior to each crash using the Visual Crossing weather API.
 
-8. **`Weather Data API Query.ipynb`**  
+7. **`Weather Data API Query.ipynb`**  
    Retrieves historical weather data (temperature, precipitation, conditions) based on crash time and location using the Visual Crossing API.
 
-9.  **`lane marking and signage hypothesis test.ipynb`**  
+8.  **`lane marking and signage hypothesis test.ipynb`**  
    Contains hypothesis test evaluating the impact of improving lane markings/signage on crash reduction.
 
 #### EDA
